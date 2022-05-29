@@ -1,0 +1,14 @@
+# Packages
+*.egg
+*.egg-info
+*.spec
+build
+venv
+.idea/
+
+# Task
+задание.txt
+
+# Logs and database
+*.log
+*.db
