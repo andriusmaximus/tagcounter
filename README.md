@@ -24,7 +24,7 @@ Options:
 
 **Installation Options**
 ---
-1. Install with [`pip`](https://pypi.org/project/stronghold/)
+1. Install with `pip`
     + `$ python -m pip install git+https://github.com/andriusmaximus/tagcounter.git`
     + `$ tagcounter`
 
