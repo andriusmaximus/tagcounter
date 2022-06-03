@@ -1,19 +1,30 @@
 """
-tagcounter - Count number of html tags on a webpage
-<url> is the website url without http prefix (e.g. google.com).
-Synonym from a synonyms file can be used instead of <url> (e.g. ggl).
-If no option is passed, GUI variant of the app opens
+tagcounter - count number of html tags on a webpage
 
-Usage:
-    tagcounter [option]
+Usage: tagcounter [OPTIONS]
+
+    <url> is the website url without http prefix (e.g. google.com).
+    Synonym from a synonyms file can be used instead of <url> (e.g. ggl).
+    If no option is passed, GUI variant of the app opens
+
 
 Options:
-    --get <url>         Get tagcounter results from the internet
-    --view <url>        View tagcounter results from the database
+    -g, --get <url>         Get tagcounter results from the internet
+    -v, --view <url>        View tagcounter results from the database
+    -h, --help              Show this message and exit
 """
 
-from PyQt5.QtWidgets import QApplication, QWidget, QFormLayout, QLineEdit, QPushButton, QLabel, QMainWindow, QGroupBox, \
-    QVBoxLayout, QListWidget, QListWidgetItem
+from PyQt5.QtWidgets import (QApplication,
+                             QWidget,
+                             QFormLayout,
+                             QLineEdit,
+                             QPushButton,
+                             QLabel,
+                             QMainWindow,
+                             QGroupBox,
+                             QVBoxLayout,
+                             QListWidget,
+                             QListWidgetItem)
 from PyQt5.QtCore import Qt, pyqtSignal
 from PyQt5.QtGui import QFont
 from html.parser import HTMLParser
@@ -119,8 +130,8 @@ def run(get, view):
             message = f'VIEW: Page has been loaded before:\n{checkedbresult[1]}\n\n{checkedbresult[0]}'
             click.secho(message, fg="blue", bold=True)
         else:
-            message = f'VIEW: Page {checkedurl} was not found in the database, please use --get parameter to load ' \
-                      f'this page first '
+            message = (f'VIEW: Page {checkedurl} was not found in the database, please use --get parameter to load '
+                      f'this page first ')
             click.secho(message, fg="red", bold=True)
     else:
         # init GUI app
@@ -265,7 +276,7 @@ def teardown():
     except OSError:
         pass
 
-# qt funcs
+# GUI: qt funcs
 
 class EditSynWindow(QWidget):
     """
